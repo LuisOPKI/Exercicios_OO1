@@ -1,5 +1,5 @@
 package atividadedeaula.aula11;
-
+//
 public enum EstadoCivil {
 	
 	SOLTEIRO,
