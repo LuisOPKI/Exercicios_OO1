@@ -1,4 +1,4 @@
-package lista5.exercicio1;
+package lista4.exercicio5;
 
 public class Artista {
 	private String nome;
