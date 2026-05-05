@@ -1,4 +1,4 @@
-package atividadeaula.aula07;
+package atividadedeaula.aula07;
 
 public class DataTeste {
 	public static void main(String[] args) {
