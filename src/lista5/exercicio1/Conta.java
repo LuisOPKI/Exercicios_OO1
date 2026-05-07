@@ -23,8 +23,17 @@ public class Conta {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
 	}
-	
+	public void sacar(double valor) {
+		if(this.saldo >= valor && valor > 0) {
+			this.saldo -= valor;
+			System.out.println("Saque realizado!");
+			System.out.println("Valor restante: " + saldo);
+		}
+		else {
+			System.out.println("Valor indispónivel");
+		}
+	}
 }
