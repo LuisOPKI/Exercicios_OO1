@@ -19,6 +19,7 @@ import java.util.List;
 			System.out.println("A conta foi criada com sucesso para " + nome + "!");
 		}
 	}
+	
 	private boolean verificarConta(int numero) {
 		for(Conta conta : contas) {
 			if(numero == conta.getNumero())
@@ -32,7 +33,31 @@ import java.util.List;
 		for(Conta conta : contas) {
 			if(numero == conta.getNumero()) {
 				conta.sacar(valor);
+				return;
 			}
 		}
+		System.out.println("A conta não foi localizada!");
+	}
+	
+	public void depositar(int numero, double valor) {
+		
+		for(Conta conta : contas) {
+			if(numero == conta.getNumero()) {
+				conta.depositar(valor);
+				return;
+			}
+		}
+		System.out.println("A conta não foi localizada!");
+	}
+	
+	public void verificarSaldo(int numero) {
+		
+		for(Conta conta : contas) {
+			if(numero == conta.getNumero()) {
+				conta.verificarSaldo();
+				return;
+			}
+		}
+		System.out.println("A conta não foi localizada!");
 	}
 }
