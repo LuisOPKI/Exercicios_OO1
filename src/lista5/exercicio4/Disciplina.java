@@ -12,7 +12,7 @@ public class Disciplina {
 		this.alunos = new ArrayList<Aluno>();
 	}
 	public Aluno buscaRa(int ra){
-		for(Aluno aluno : alunos) {
+		for(Aluno aluno : this.alunos) {
 			if (aluno.getRa() == ra) {
 				return aluno;
 			}
@@ -37,10 +37,24 @@ public class Disciplina {
 	public void atribuirNota(int ra, Double nota) {
 		Aluno aluno = buscaRa(ra);
 		if(aluno == null) {
-			this.alunos.add(new Aluno(nome, ra));
-		}
-		else {
 			System.out.println("Este RA não foi encontrado!");
 		}
+		else if(nota<0){
+			System.out.println("Nota inválida!");
+		}
+		else {
+			aluno.atribuirNota(nota);
+		}
+	}
+	public void finalizarSemestre() {
+		Double somaDisciplina = 0.0;
+		for(Aluno aluno : this.alunos) {
+			somaDisciplina += aluno.calculoMedia();
+		}
+		Double mediaTurma = somaDisciplina / this.alunos.size();
+		System.out.println("========================");
+		System.out.println("NOME DISCIPLINA: " + this.nome);
+		System.out.println("MÉDIA DA TURMA: " + mediaTurma);
+		System.out.println("========================");
 	}
 }
