@@ -34,7 +34,7 @@ public class Estacionamento {
 		for(Vaga vaga : vagas) {
 			if(vaga.isDisponibilidade() == false) {
 				if(vaga.getVeiculos().getPlaca().equals(placa)) {
-					vaga.retirarVeiculo();
+					vaga.retirarVeiculo(horaSaida);
 				}
 			}
 		}
