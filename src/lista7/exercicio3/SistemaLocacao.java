@@ -21,12 +21,24 @@ public class SistemaLocacao {
         this.filmes.add(filme);
     }
 
-    public void alugarFilme(Cliente cliente, Filme filme) {
-        
+    public void alugarFilme(String nomeCliente, String nome, int diaAlocacao) {{
+        for (Filme filme : filmes) {
+            if (filme.getTitulo().equalsIgnoreCase(nome) && filme.isDisponivel()) {
+                filme.alugarFilme(cliente, false)
+                System.out.println("Filme " + filme.getTitulo() + " alugado para " + cliente.nome);
+                return;
+            }
+        }
     }
 
     public void devolverFilme(Cliente cliente, Filme filme) {
-        
+        if (filme.getCliente() == cliente) {
+            filme.setDisponivel(true);
+            filme.setCliente(null);
+            System.out.println("Filme " + filme.getTitulo() + " devolvido com sucesso.");
+        } else {
+            System.out.println("Filme " + filme.getTitulo() + " não foi alugado por " + cliente.nome);
+        }
     }
 
 }
