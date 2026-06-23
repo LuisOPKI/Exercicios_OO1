@@ -1,5 +1,8 @@
 	package lista7.exercicio4;
 	
+	import java.util.ArrayList;
+	import java.util.List;
+	
 	public abstract class FuncionarioUtfpr {
 		protected int registro;
 		protected String nome;

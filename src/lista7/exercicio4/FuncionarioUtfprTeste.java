@@ -27,5 +27,6 @@ public class FuncionarioUtfprTeste {
 		System.out.println("=================================================");
 		tec1.exibirDados();
 		System.out.println("=================================================");
+
 	}
 }

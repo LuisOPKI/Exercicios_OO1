@@ -22,13 +22,28 @@ public class SistemaLocacao {
     }
 
     public void alugarFilme(String nomeCliente, String nome, int diaAlocacao) {{
+        // encontrar cliente pelo nome
+        Cliente cliente = null;
+        for (Cliente c : clientes) {
+            if (c.nome.equalsIgnoreCase(nomeCliente)) {
+                cliente = c;
+                break;
+            }
+        }
+        if (cliente == null) {
+            System.out.println("Cliente " + nomeCliente + " não encontrado.");
+            return;
+        }
+
         for (Filme filme : filmes) {
             if (filme.getTitulo().equalsIgnoreCase(nome) && filme.isDisponivel()) {
-                filme.alugarFilme(cliente, false)
+                filme.setDisponivel(false);
+                filme.setCliente(cliente);
                 System.out.println("Filme " + filme.getTitulo() + " alugado para " + cliente.nome);
                 return;
             }
         }
+        System.out.println("Filme " + nome + " não disponível para aluguel.");
     }
 
     public void devolverFilme(Cliente cliente, Filme filme) {
